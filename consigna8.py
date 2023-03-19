@@ -14,7 +14,7 @@ from consigna7 import Cuenta
 import datetime
 from datetime import date
 
-
+#Se crea una clase llamada Cuenta Joven agregando el atributo bonificación
 class CuentaJoven(Cuenta):
     def __init__(self, titular, cantidad, bonificacion=0):
         super().__init__(titular, cantidad)
@@ -27,12 +27,13 @@ class CuentaJoven(Cuenta):
     @bonificacion.setter
     def bonificacion(self, bonificacion):
         self.__bonificacion = bonificacion
-    
+
+#El titular de la cuenta debe ser mayor de edad
     def es_titular_valido(self):
         # Suponemos que la fecha de nacimiento del titular se encuentra en el atributo fecha_nacimiento
         edad = (datetime.date.today() - self.get_titular().fecha_nacimiento).days // 365
         return edad > 18 and edad < 25
-    
+
     def retirar(self, cantidad):
         if self.es_titular_valido():
             super().retirar(cantidad)

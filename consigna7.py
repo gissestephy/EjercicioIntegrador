@@ -40,7 +40,7 @@ class Cuenta():
     def __init__(self,titular, cantidad):
         self.titular= titular
         self.__cantidad= 0
-        
+    
     def get_titular(self):
         return self.titular
     
